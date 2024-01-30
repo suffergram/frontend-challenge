@@ -1,0 +1,29 @@
+.cat-content-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, auto));
+  grid-template-rows: repeat(auto-fit, minmax(225px, auto));
+  margin: 52px 62px 0;
+  justify-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.cat-content-container {
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.cat-content-image {
+  width: 225px;
+  height: 225px;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+
+.cat-content-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,10 @@
+.like {
+  position: absolute;
+  bottom: 23px;
+  right: 17px;
+  display: none;
+}
+
+.cat-content-container:hover .like {
+  display: block;
+}
