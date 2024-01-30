@@ -13,7 +13,14 @@ export function CatContent({ cats }: CatContentProps) {
         cats.map((cat) => (
           <div key={cat.id} className="cat-content-container">
             <img src={cat.url} className="cat-content-image" />
-            <Like checked={cat.fav ?? false} />
+            <Like
+              checked={
+                localStorage.getItem(cat.id)
+                  ? JSON.parse(localStorage.getItem(cat.id) ?? "")
+                  : false
+              }
+              id={cat.id}
+            />
           </div>
         ))}
     </main>

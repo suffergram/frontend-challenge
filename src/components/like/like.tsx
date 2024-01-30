@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 
 type LikeProps = {
   checked: boolean;
+  id: string;
 };
 
-export function Like({ checked }: LikeProps) {
-  const [fav, setFav] = useState(checked);
-  const [hovered, setHovered] = useState(false);
+export function Like({ checked, id }: LikeProps) {
+  const [isFav, setIsFav] = useState(checked);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    setFav((prev) => !prev);
+    setIsFav((prev) => !prev);
   };
 
+  useEffect(() => {
+    localStorage.setItem(id, isFav.toString());
+  }, [isFav]);
+
   const handleHover = () => {
-    setHovered((prev) => !prev);
+    setIsHovered((prev) => !prev);
   };
 
   return (
@@ -29,7 +34,7 @@ export function Like({ checked }: LikeProps) {
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
     >
-      {fav || hovered ? (
+      {isFav || isHovered ? (
         <path
           d="M20 36.7L17.1 34.06C6.8 24.72 0 18.56 0 11C0 4.84 4.84 0 11 0C14.48 0 17.82 1.62 20 4.18C22.18 1.62 25.52 0 29 0C35.16 0 40 4.84 40 11C40 18.56 33.2 24.72 22.9 34.08L20 36.7Z"
           fill="#FF3A00"

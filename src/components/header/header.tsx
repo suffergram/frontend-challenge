@@ -4,8 +4,8 @@ import "./style.css";
 export function Header() {
   return (
     <header className="header">
-      <HeaderItem text="Все котики" />
-      <HeaderItem text="Любимые котики" />
+      <HeaderItem text="Все котики" path="/" />
+      <HeaderItem text="Любимые котики" path="/likes" />
     </header>
   );
 }
